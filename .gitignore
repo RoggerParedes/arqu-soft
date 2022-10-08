@@ -113,4 +113,8 @@ store/static/files/
 node_modules
 .DS_Store
 
+/perf/end_9090_v*
+/perf/end_9090_p*
+/perf/end_9090.t*
+/perf/node_9090_*
 .vscode
