@@ -1,0 +1,26 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node/async'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node"
+
+  pool: 500 # All HTTP requests from all virtual users will be sent over the same connections
+
+  phases:
+    - name: Ramp
+      duration: 30
+      arrivalRate: 15
+      rampTo: 20
+    - name: Plain
+      duration: 20
+      arrivalRate: 5
+    
+scenarios:
+  - name: Root (/)
+    flow:
+      - get:
+          url: '/'

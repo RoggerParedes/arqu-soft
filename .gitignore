@@ -117,4 +117,5 @@ node_modules
 /perf/end_9090_p*
 /perf/end_9090.t*
 /perf/node_9090_*
+comandos.*
 .vscode
