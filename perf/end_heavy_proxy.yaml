@@ -1,0 +1,34 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node/heavy'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node"
+
+  pool: 500 # All HTTP requests from all virtual users will be sent over the same connections
+
+  phases:
+    - name: eigth
+      duration: 1
+      arrivalCount: 1
+    - name: pause
+      pause: 9
+    - name: ninth
+      duration: 1
+      arrivalCount: 5
+    - name: pause
+      pause: 9
+    - name: second
+      duration: 5
+      arrivalRate: 1
+    - name: pause
+      pause: 10
+    
+scenarios:
+  - name: Root (/)
+    flow:
+      - get:
+          url: '/'

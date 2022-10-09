@@ -1,7 +1,7 @@
 config:
   environments:
     node:
-      target: 'http://localhost:5555/node/async'
+      target: 'http://localhost:5555/node/'
       plugins:
         statsd:
           host: localhost
@@ -47,11 +47,6 @@ config:
     - name: fifth
       duration: 10
       arrivalRate: 100
-    - name: pause
-      pause: 10
-    - name: sixth
-      duration: 10
-      arrivalRate: 500
     
 scenarios:
   - name: Root (/)
