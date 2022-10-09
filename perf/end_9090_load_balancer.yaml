@@ -1,7 +1,7 @@
 config:
   environments:
     node:
-      target: 'http://localhost:5555/sync'
+      target: 'http://localhost:5555/node/async'
       plugins:
         statsd:
           host: localhost
@@ -11,10 +11,52 @@ config:
   pool: 500 # All HTTP requests from all virtual users will be sent over the same connections
 
   phases:
-    - name: Ramp
-      duration: 60
+    - name: first
+      duration: 30
+      arrivalCount: 30
+    - name: second
+      duration: 30
+      arrivalRate: 5
+    - name: pause
+      pause: 10
+    - name: third
+      duration: 30
+      arrivalRate: 25
+    - name: pause
+      pause: 10
+    - name: fourth
+      duration: 30
+      arrivalRate: 50
+    - name: pause
+      pause: 10
+    - name: fifth
+      duration: 30
       arrivalRate: 100
-      rampTo: 1000
+    - name: pause
+      pause: 10
+    - name: sixth
+      duration: 10
+      arrivalRate: 500
+    - name: pause
+      pause: 20
+    - name: seventh
+      duration: 1
+      arrivalCount: 10
+    - name: pause
+      pause: 9
+    - name: eigth
+      duration: 1
+      arrivalCount: 25
+    - name: pause
+      pause: 9
+    - name: ninth
+      duration: 1
+      arrivalCount: 50
+    - name: pause
+      pause: 9
+    - name: tenth
+      duration: 1
+      arrivalCount: 200
     
 scenarios:
   - name: Root (/)
