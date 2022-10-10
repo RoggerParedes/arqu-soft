@@ -11,11 +11,6 @@ config:
   pool: 500 # All HTTP requests from all virtual users will be sent over the same connections
 
   phases:
-    - name: eigth
-      duration: 1
-      arrivalCount: 25
-    - name: pause
-      pause: 9
     - name: ninth
       duration: 1
       arrivalCount: 50

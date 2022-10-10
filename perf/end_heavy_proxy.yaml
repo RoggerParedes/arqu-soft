@@ -26,7 +26,10 @@ config:
       arrivalRate: 1
     - name: pause
       pause: 10
-    
+    - name: third
+      duration: 5
+      arrivalRate: 2
+
 scenarios:
   - name: Root (/)
     flow:
